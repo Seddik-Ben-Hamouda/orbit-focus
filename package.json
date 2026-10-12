@@ -1,0 +1,36 @@
+{
+  "name": "orbit-focus",
+  "version": "1.0.0",
+  "description": "Zero-dependency 3D orbit carousel: thumbnails orbit a focused image as you scroll. Elliptical orbit on desktop, one swipeable row on mobile. Vanilla JS + CSS + React wrapper.",
+  "license": "MIT",
+  "author": "Your Name",
+  "type": "module",
+  "main": "./dist/orbit-focus.global.js",
+  "module": "./src/orbit-focus.js",
+  "types": "./src/orbit-focus.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/orbit-focus.d.ts",
+      "import": "./src/orbit-focus.js"
+    },
+    "./style.css": "./src/orbit-focus.css",
+    "./react": "./src/react/OrbitFocus.jsx",
+    "./global": "./dist/orbit-focus.global.js"
+  },
+  "files": ["src", "dist", "README.md", "LICENSE"],
+  "sideEffects": ["*.css"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "npx serve ."
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true }
+  },
+  "keywords": [
+    "carousel", "gallery", "3d", "orbit", "css-transforms", "javascript",
+    "react", "template", "vanilla-js", "scroll-animation", "ui-component"
+  ]
+}

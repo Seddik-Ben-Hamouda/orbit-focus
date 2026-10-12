@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OrbitFocus — vanilla example</title>
+<link rel="stylesheet" href="../../dist/orbit-focus.css">
+<style>
+  html, body { height: 100%; margin: 0; overflow: hidden; }
+  #gallery { height: 100%; }            /* the carousel fills its container */
+</style>
+</head>
+<body>
+
+<div id="gallery"></div>
+
+<!-- classic script: works even when you double-click this file (no server needed) -->
+<script src="../../dist/orbit-focus.global.js"></script>
+<script>
+  const photo = (id, w, h) => `https://picsum.photos/id/${id}/${w}/${h}`;
+  const names = ['Nordhaus','Aster Bloom','Halcyon Type','Ink Study','Shadow Walk','Kairo Editions',
+                 'Static Field','Soft Face','Red Line','Paper Sun','Grain Room','Blue Form'];
+  const ids   = [10,20,30,40,50,60,70,80,90,101,111,121];
+
+  new OrbitFocus('#gallery', {
+    items: names.map((title, i) => ({
+      title,
+      image: photo(ids[i], 700, 800),
+      thumb: photo(ids[i], 300, 400)
+    })),
+    buttonLabel: 'Open',
+    onChange:   (item, i) => console.log('focused:', item.title, i),
+    onActivate: (item)    => alert('You clicked ' + item.title)
+  });
+</script>
+</body>
+</html>
